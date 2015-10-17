@@ -13,8 +13,8 @@
 
 %Training Data can be found in zero.csv, one.csv, ..., etc.
 
-digits(:,:,1) = csvread('zero.csv');
-digits(:,:,2) = csvread('one.csv');
+digits(:,:,1) = csvread('data/zero.csv');
+digits(:,:,2) = csvread('data/one.csv');
 
 numdigits = numel(digits(1,1,:));
 numrows = numel(digits(:,1,1));
