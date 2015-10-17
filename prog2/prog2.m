@@ -3,7 +3,7 @@
 
 %Authors:
 %Boston Hock, Justin Kilpatrick, Thomas Lavastida
-%October 13, 2015
+%October 17, 2015
 
 %Black Square <-> 1
 %White Square <-> -1

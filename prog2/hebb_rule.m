@@ -4,6 +4,10 @@ function [ weights ] = hebb_rule( targets, inputs )
 %   rule given the set of training data in 
 %   the targets and inputs parameters.
 
+%Authors:
+%Boston Hock, Justin Kilpatrick, Thomas Lavastida
+%October 17, 2015
+
 %targets - matrix containing each target as a column vector
 %inputs - matrix containing each target as a row vector
 
