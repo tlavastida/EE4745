@@ -1,5 +1,5 @@
 %prog2.m
-%Hebb Rule, Pseudo-inverse Rule, and autoassociative memories
+%Hebb Rule, Pseudo-inverse Rule, and Autoassociative Memories
 
 %Authors:
 %Boston Hock, Justin Kilpatrick, Thomas Lavastida
@@ -25,11 +25,7 @@ p = zeros((numrows*numcols),numdigits);
 
 %Scan column by column
 for i = 1:numdigits
-    for j = 1:numcols
-        for k = 1:numrows
-            p(k+(j-1)*numrows,i) = digits(k,j,i);
-        end
-    end
+    p(:,i) = matrix_to_column(digits(:,:,i));
 end
 
 %Use Hebb rule to learn input p
