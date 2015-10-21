@@ -13,10 +13,11 @@
 
 %Training Data can be found in zero.csv, one.csv, ..., etc.
 
+%DIGITS IS HOLDING CORRECT DATA
 digits(:,:,1) = csvread('data/zero.csv');
 digits(:,:,2) = csvread('data/one.csv');
 
-numdigits = numel(digits(1,1,:));
+numdigits = numel(digits(1,1,:)); %CHANGE THIS, USER SPECIFIED
 numrows = numel(digits(:,1,1));
 numcols = numel(digits(1,:,1));
 
@@ -30,13 +31,11 @@ end
 
 %Use Hebb rule to learn input p
 %weight is initially zero
-weight = zeros(numrows*numcols,numrows*numcols);
 
-for i = 1:numdigits
-    weight = weight + p(:,i)*p(:,i)';
+weight_hebb = zeros(numrows*numcols,numrows*numcols,numdigits-1);
+weight_pseudo = zeros(numrows*numcols,numrows*numcols,numdigits-1);
+for i = 1:numdigits-1
+    weight_hebb(:,:,i) = hebb_rule(p(:,1:i+1),p(:,1:i+1));
+    weight_pseudo(:,:,i) = pseudoinverse_rule(p(:,1:i+1),p(:,1:i+1));
 end
-
-weight_2 = hebb_rule(p,p);
-
-weight_3 = pseudoinverse_rule(p,p);
 
