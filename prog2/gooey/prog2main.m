@@ -1,22 +1,5 @@
 function varargout = prog2main(varargin)
 % PROG2MAIN MATLAB code for prog2main.fig
-%      PROG2MAIN, by itself, creates a new PROG2MAIN or raises the existing
-%      singleton*.
-%
-%      H = PROG2MAIN returns the handle to a new PROG2MAIN or the handle to
-%      the existing singleton*.
-%
-%      PROG2MAIN('CALLBACK',hObject,eventData,handles,...) calls the local
-%      function named CALLBACK in PROG2MAIN.M with the given input arguments.
-%
-%      PROG2MAIN('Property','Value',...) creates a new PROG2MAIN or raises the
-%      existing singleton*.  Starting from the left, property value pairs are
-%      applied to the GUI before prog2main_OpeningFcn gets called.  An
-%      unrecognized property name or invalid value makes property application
-%      stop.  All inputs are passed to prog2main_OpeningFcn via varargin.
-%
-%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
-%      instance to run (singleton)".
 %
 % See also: GUIDE, GUIDATA, GUIHANDLES
 
