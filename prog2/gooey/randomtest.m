@@ -22,7 +22,7 @@ function varargout = randomtest(varargin)
 
 % Edit the above text to modify the response to help randomtest
 
-% Last Modified by GUIDE v2.5 21-Oct-2015 01:11:36
+% Last Modified by GUIDE v2.5 22-Oct-2015 00:04:42
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -71,3 +71,10 @@ function varargout = randomtest_OutputFcn(hObject, eventdata, handles)
 
 % Get default command line output from handles structure
 varargout{1} = handles.output;
+
+
+% --- Executes during object creation, after setting all properties.
+function text11_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to text11 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
