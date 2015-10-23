@@ -16,6 +16,18 @@
 %DIGITS IS HOLDING CORRECT DATA
 digits(:,:,1) = csvread('data/zero.csv');
 digits(:,:,2) = csvread('data/one.csv');
+digits(:,:,3) = csvread('data/two.csv');
+digits(:,:,4) = csvread('data/three.csv');
+digits(:,:,5) = csvread('data/four.csv');
+digits(:,:,6) = csvread('data/five.csv');
+digits(:,:,7) = csvread('data/six.csv');
+digits(:,:,8) = csvread('data/BH.csv');
+digits(:,:,9) = csvread('data/BK.csv');
+digits(:,:,10) = csvread('data/DK.csv');
+digits(:,:,11) = csvread('data/DL.csv');
+digits(:,:,12) = csvread('data/JK.csv');
+digits(:,:,13) = csvread('data/SR.csv');
+digits(:,:,14) = csvread('data/TL.csv');
 
 numdigits = numel(digits(1,1,:)); %CHANGE THIS, USER SPECIFIED
 numrows = numel(digits(:,1,1));
@@ -39,3 +51,4 @@ for i = 1:numdigits-1
     weight_pseudo(:,:,i) = pseudoinverse_rule(p(:,1:i+1),p(:,1:i+1));
 end
 
+%error(p(:,1:i+1), weight_hebb, p(:,1:i+1));
