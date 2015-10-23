@@ -72,6 +72,7 @@ digits(:,:,4) = csvread('data/three.csv');
 digits(:,:,5) = csvread('data/four.csv');
 digits(:,:,6) = csvread('data/five.csv');
 digits(:,:,7) = csvread('data/six.csv');
+<<<<<<< HEAD
 digits(:,:,8) = csvread('data/BH.csv');
 digits(:,:,9) = csvread('data/BK.csv');
 digits(:,:,10) = csvread('data/DK.csv');
@@ -79,6 +80,8 @@ digits(:,:,11) = csvread('data/DL.csv');
 digits(:,:,12) = csvread('data/JK.csv');
 digits(:,:,13) = csvread('data/SR.csv');
 digits(:,:,14) = csvread('data/TL.csv');
+=======
+>>>>>>> 8058ac1b78fef37c0e8c41d33baba9fc4fb500c7
 
 global manual_occluded_input;
 manual_occluded_input = -1*ones(30,1);
@@ -87,7 +90,11 @@ global range;
 range = 1;
 
 global test_vector;
+<<<<<<< HEAD
 test_vector = matrix_to_column(digits(:,:,1));
+=======
+test_vector = digits(:,:,1);
+>>>>>>> 8058ac1b78fef37c0e8c41d33baba9fc4fb500c7
 
 global num_noisy_pixels;
 num_noisy_pixels = 2;
@@ -551,6 +558,7 @@ function manual_test_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 global manual_occluded_input;
 global range;
+<<<<<<< HEAD
 %global test_vector;
 %global num_noisy_pixels;
 %global num_trials;
@@ -589,6 +597,16 @@ figure;
 imshow(-1*im_pseudo);
 title('Pseudoinverse Rule Output');
 
+=======
+global test_vector;
+global num_noisy_pixels;
+global num_trials;
+manual_occluded_input
+range
+test_vector
+num_noisy_pixels
+num_trials
+>>>>>>> 8058ac1b78fef37c0e8c41d33baba9fc4fb500c7
 
 % --- Executes on button press in random_test.
 function random_test_Callback(hObject, eventdata, handles)
@@ -606,6 +624,7 @@ numcols = numel(digits(1,:,1));
 
 inputs = zeros((numrows*numcols),range);
 
+<<<<<<< HEAD
 if( range <= 6 ) %load numbers
     for i = 1:range+1
         inputs(:,i) = matrix_to_column(digits(:,:,i));
@@ -614,6 +633,10 @@ else %load initials
     for i = 8:14
         inputs(:,i-7) = matrix_to_column(digits(:,:,i));
     end
+=======
+for i = 1:range+1
+    inputs(:,i) = matrix_to_column(digits(:,:,i));
+>>>>>>> 8058ac1b78fef37c0e8c41d33baba9fc4fb500c7
 end
 
 %create the weights
@@ -624,6 +647,7 @@ num_err_hebb = 0;
 num_err_pseudo = 0; 
 for i = 1:num_trials
     noised = noise(test_vector, num_noisy_pixels);
+<<<<<<< HEAD
     
     %Get network output
     output_hebb = hardlims(weights_hebb*noised);
@@ -637,15 +661,22 @@ for i = 1:num_trials
         num_err_pseudo = num_err_pseudo + 1;
     end
    
+=======
+    num_err_hebb = num_err_hebb + hebb_error(test_vector, weights_hebb, matrix_to_column(noised));
+    num_err_pseudo = num_err_pseudo + hebb_error(test_vector, weights_pseudo, matrix_to_column(noised));
+>>>>>>> 8058ac1b78fef37c0e8c41d33baba9fc4fb500c7
 end
 
 percent_err_hebb = (num_err_hebb / num_trials) * 100;
 percent_err_pseudo = (num_err_pseudo / num_trials) * 100;
 
+<<<<<<< HEAD
 set(handles.text15,'String',num2str(num_err_hebb));
 set(handles.text9,'String',num2str(percent_err_hebb));
 set(handles.text16,'String',num2str(num_err_pseudo));
 set(handles.text10,'String',num2str(percent_err_pseudo));
+=======
+>>>>>>> 8058ac1b78fef37c0e8c41d33baba9fc4fb500c7
 
 % --- POPPOP --- %
 
@@ -663,6 +694,7 @@ str = get(hObject, 'String');
 val = get(hObject,'Value');
 % Set current data to the selected data set.
 switch str{val};
+<<<<<<< HEAD
     case '0-1' % User selects peaks.
         range = 1;
     case '0-2' % User selects membrane.
@@ -677,6 +709,20 @@ switch str{val};
         range = 6; 
     case 'Initials'
         range = 7;
+=======
+case '0-1' % User selects peaks.
+   range = 1;
+case '0-2' % User selects membrane.
+   range = 2;
+case '0-3' % User selects sinc.
+   range = 3;
+case '0-4' % User selects peaks.
+   range = 4;
+case '0-5' % User selects membrane.
+   range = 5;
+case '0-6' % User selects sinc.
+   range = 6; 
+>>>>>>> 8058ac1b78fef37c0e8c41d33baba9fc4fb500c7
 end
 % Save the handles structure.
 guidata(hObject,handles)
@@ -713,6 +759,7 @@ val = get(hObject,'Value');
 % Set current data to the selected data set.
 switch str{val};
     case '0'
+<<<<<<< HEAD
         test_vector = matrix_to_column(digits(:,:,1));
     case '1' 
         test_vector = matrix_to_column(digits(:,:,2));
@@ -740,6 +787,21 @@ switch str{val};
         test_vector = matrix_to_column(digits(:,:,13));
     case 'TL'
         test_vector = matrix_to_column(digits(:,:,14));
+=======
+        test_vector = digits(:,:,1);
+    case '1' 
+        test_vector = digits(:,:,2);
+    case '2'
+        test_vector = digits(:,:,3);
+    case '3'
+        test_vector = digits(:,:,4);
+    case '4' 
+        test_vector = digits(:,:,5);
+    case '5' 
+        test_vector = digits(:,:,6);
+    case '6'
+        test_vector = digits(:,:,7); 
+>>>>>>> 8058ac1b78fef37c0e8c41d33baba9fc4fb500c7
 end
 % Save the handles structure.
 guidata(hObject,handles)

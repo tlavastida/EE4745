@@ -11,6 +11,7 @@ output = zeros(output_rows, output_rows);
 
 for i = 1:output_columns
     for j = 1:output_rows
+<<<<<<< HEAD
         map_r = (idivide(int32(j), int32(scale_factor), 'ceil'));
         map_c = (idivide(int32(i), int32(scale_factor), 'ceil'));
         %protection case for matricies that are not square. 
@@ -24,5 +25,17 @@ for i = 1:output_columns
     end
 end
 output = output';
+=======
+        map_r = int32(j/scale_factor);
+        map_c = int32(i/scale_factor);
+        if(input(map_r,map_c) == 1)
+            output(j, i) = 1;
+        else
+            output(j, i) = -1;
+        end
+    end
+end
+
+>>>>>>> 8058ac1b78fef37c0e8c41d33baba9fc4fb500c7
 end
 
